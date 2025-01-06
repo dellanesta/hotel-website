@@ -1,0 +1,162 @@
+h1,h2,h3,h4,h5,h6{
+    font-family: $font-title;
+}
+h1{
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.2;
+    @include respond-to('S'){
+        font-size: 96px;
+    }
+    @include respond-to('L'){
+        font-size: 120px;
+    }
+}
+h2{
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 1.1;
+    @include respond-to('S'){
+        font-size: 80px;
+    }
+    @include respond-to('L'){
+        font-size: 92px;
+    }
+}
+@mixin h3(){
+    font-family: $font-title;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.1;
+    @include respond-to('S'){
+        font-size: 62px;
+    }
+}
+h3{
+    @include h3();
+}
+@mixin h4(){
+    font-family: $font-title;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1;
+    @include respond-to('S'){
+        font-size: 54px;
+    }
+}
+h4{
+    @include h4();
+}
+@mixin h5(){
+    font-family: $font-title;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.35;
+    @include respond-to('S'){
+        font-size: 32px;
+    }
+}
+h5{
+    @include h5();
+}
+@mixin h6(){
+    font-family: $font-title;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.1;
+    @include respond-to('S'){
+        font-size: 28px;
+    }
+}
+h6{
+    @include h6();
+}
+
+@mixin body-s() {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-family: $font-text;
+}
+.body-s{
+    @include body-s();
+}
+@mixin body-m() {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-family: $font-text;
+}
+.body-m{
+    @include body-m();
+}
+@mixin body-l() {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-family: $font-text;
+}
+.body-l{
+    @include body-l();
+}
+@mixin body-xl() {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-family: $font-text;
+}
+.body-xl{
+    @include body-xl();
+}
+@mixin caption-xs() {
+    font-family: $font-text;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+.caption-xs{
+    @include caption-xs();
+}
+@mixin caption-s() {
+    font-family: $font-text;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+.caption-s{
+    @include caption-s();
+}
+@mixin caption-m() {
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+.caption-m{
+    @include caption-m();
+}
+@mixin caption-l() {
+    font-family: $font-text;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+.caption-l{
+    @include caption-l();
+}
+p{
+    font-family: $font-text;
+    font-weight: 300;
+    b{
+        color: inherit;
+        font-weight: 600;
+    }
+}

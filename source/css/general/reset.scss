@@ -1,0 +1,65 @@
+// General reset of all elements
+*{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout:none;
+    -webkit-text-size-adjust:none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+// Style of text selection
+*::-moz-selection { /* Code for Firefox */
+    color: var(--color-light);
+    background: var(--color-primary);
+}
+*::selection {
+    color: var(--color-light);
+    background: var(--color-primary);
+}
+// Style of body and website scrollbar
+body{
+    background-color: #e6f3f8;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+    @include respond-to('L'){
+        &::-webkit-scrollbar {
+            width: 8px;
+            cursor: grab;
+            transition: all .3s ease-in-out;
+        }
+        &::-webkit-scrollbar-track {
+            background: var(--white);
+            cursor: grab;
+            transition: all .3s ease-in-out;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            cursor: grab;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: var(--color-text-light);
+        }
+    }
+}
+
+// Restyle UL
+ul,ol{
+    margin: 16px 0;
+    padding-left: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap:12px;
+    li{
+        width: 100%;
+    }
+}
+ol{
+    list-style-type:upper-roman;
+}
