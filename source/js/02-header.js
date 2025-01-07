@@ -1,23 +1,7 @@
 // // Select header of website
+
 let header = document.querySelector('header');
-
 if (header) {
-    let isMobile = window.innerWidth < 1270;
-    // Select nav of website
-    let nav = header.querySelector('.main-nav');
-    let menuToggle = nav.querySelector('.menu-toggle');
-    let firstMenuToggleVoice = nav.querySelector('.voices-wrapper span:nth-child(1)');
-    let secondMenuToggleVoice = nav.querySelector('.voices-wrapper span:nth-child(2)');
-    let burger = menuToggle.querySelector('.burger');
-    let socialsWrapper = nav.querySelector('.socials-wrapper');
-    let socialsWrapperItems = socialsWrapper.querySelectorAll('.social-icon');
-    let mainMenu = nav.querySelector('.main-menu');
-    let MainMenuHeader = mainMenu.querySelector('.main-menu_header');
-    let MainMenuBody = mainMenu.querySelector('.main-menu_body');
-    let MainMenuFooter = mainMenu.querySelector('.main-menu_footer');
-    let closeMainMenu = MainMenuHeader.querySelector('.burger.close');
-    let logoMainMenu = MainMenuHeader.querySelector('.logo-main-menu');
-
     // Function to set up initial styles for smooth animations
     function setupInitialStyles() {
 
@@ -26,7 +10,7 @@ if (header) {
         let MainMenuBodyHeight = `calc(100% - ${MainMenuHeaderHeight}px - ${MainMenuFooterHeight}px)`;
         MainMenuBody.style.height = MainMenuBodyHeight;
 
-        gsap.set(mainMenu, { autoAlpha:0});
+        gsap.set(mainMenu, { autoAlpha:0,zIndex:-1});
         gsap.set(burger, {
             scale:1,
             duration:1,
@@ -37,6 +21,20 @@ if (header) {
             autoAlpha:1,
             duration:.5,
             stagger:.18,
+        });
+        gsap.set(pagesListItemTitles, {
+            y:24,
+            autoAlpha:0,
+            duration:1.5,
+        });
+        gsap.set(pagesListItemDividers, {
+            scaleX:0,
+            duration:1,
+        }, "+0.01");
+        gsap.set(pagesListItemVoices, {
+            y:24,
+            autoAlpha:0,
+            duration:1,
         });
         gsap.set(logoMainMenu, {
             y:-16,
@@ -64,6 +62,7 @@ if (header) {
         },"-0.02") 
         .to(mainMenu, {
             autoAlpha:1,
+            zIndex:100,
         },"-0.01") 
         .to(logoMainMenu, {
             y:0,
@@ -72,6 +71,18 @@ if (header) {
             scale:1,
             zIndex:100,
         },"-0.01") 
+        .to(pagesListItemTitles, {
+            y:0,
+            autoAlpha:1,
+        }, "+0.01") 
+        .to(pagesListItemDividers, {
+            scaleX:1,
+            autoAlpha:1,
+        }, "+0.01") 
+        .to(pagesListItemVoices, {
+            y:0,
+            autoAlpha:1,
+        }, "+0.01") 
     
     // When click on menuToggle
     menuToggle.addEventListener("click", (e) => {

@@ -2,6 +2,9 @@
     position: relative;
     height: 100dvh;
     .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .image-wrapper{
             position: absolute;
             top:0;
@@ -12,6 +15,17 @@
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
+            }
+        }
+        .logo-landing{
+            width: 250px;
+            transform: translate3d(0,-80px,0);
+            svg{
+                width: 100%;
+                fill: white;
+                g{
+                    fill: white;
+                }
             }
         }
     }

@@ -14,12 +14,14 @@ var paths = {
 		file: 'source/css/main.scss',
 		src: 'source/css/**/*{.scss,.css}',
 		destDev: 'dev/assets/css/',
-		destPublic: 'public_html/assets/css/'
+		destPublic: 'public_html/assets/css/',
+		destCraft: 'craft/public_html/assets/css/'
 	},
 	scripts: {
 		src: 'source/js/**/*.js',
 		destDev: 'dev/assets/js/',
-		destPublic: 'public_html/assets/js/'
+		destPublic: 'public_html/assets/js/',
+		destCraft: 'craft/public_html/assets/js/'
 	},
 	components: {
 		src: 'dev/**/*{.html,.php}'
@@ -80,6 +82,20 @@ function stylesDev() {
 		.pipe(gulp.dest(paths.styles.destDev));
 	// .pipe(gulp.dest(paths.styles.destPublic));
 }
+function stylesCraft() {
+	return gulp.src(paths.styles.file)
+		.pipe(sass())
+		.pipe(cleanCSS())
+		// pass in options to the stream
+		.pipe(rename({
+			basename: 'main',
+			suffix: '.min'
+		}))
+		.pipe(concat('main.min.css'))
+		.pipe(gulp.dest(paths.styles.destCraft));
+	// .pipe(gulp.dest(paths.styles.destPublic));
+}
+
 
 function scripts() {
 	return gulp.src(paths.scripts.src, { sourcemaps: true })
@@ -101,12 +117,24 @@ function scriptsDev() {
 		.pipe(gulp.dest(paths.scripts.destDev));
 	// .pipe(gulp.dest(paths.scripts.destPublic));
 }
+function scriptsCraft() {
+	return gulp.src(paths.scripts.src, { sourcemaps: true })
+		.pipe(babel({
+			presets: ["@babel/preset-env"]
+		}))
+		.pipe(uglify())
+		.pipe(concat('main.min.js'))
+		.pipe(gulp.dest(paths.scripts.destCraft));
+	// .pipe(gulp.dest(paths.scripts.destPublic));
+}
 
 function watch() {
 	// gulp.watch(paths.scripts.src, scripts);
 	// gulp.watch(paths.styles.src, styles);
 	gulp.watch(paths.scripts.src, scriptsDev);
 	gulp.watch(paths.styles.src, stylesDev);
+	gulp.watch(paths.scripts.src, scriptsCraft);
+	gulp.watch(paths.styles.src, stylesCraft);
 }
 
 
