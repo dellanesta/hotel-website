@@ -580,6 +580,7 @@ header .main-nav .container .main-menu .main-menu_body {
   align-items: flex-start;
   justify-content: flex-start;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 header .main-nav .container .main-menu .main-menu_body .pages-list {
   width: 100%;

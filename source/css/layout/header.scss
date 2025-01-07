@@ -279,6 +279,7 @@ header{
                     align-items: flex-start;
                     justify-content: flex-start;
                     overflow: hidden;
+                    scroll-behavior: smooth;
                     .pages-list{
                         width: 100%;
                         display: flex;
