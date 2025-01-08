@@ -97,7 +97,7 @@ header{
                     align-items: center;
                     justify-content: center;
                     gap:20px;
-                    z-index: 2;
+                    z-index: $zindex-very-high;
                     padding-right: 6px;
                     a{
                         &.only-icon{

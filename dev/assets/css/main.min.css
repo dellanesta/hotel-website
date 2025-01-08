@@ -390,7 +390,7 @@ header .main-nav .container .nav-item.contact {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  z-index: 2;
+  z-index: 999;
   padding-right: 6px;
 }
 header .main-nav .container .nav-item.contact a.only-icon {
